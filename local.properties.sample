@@ -1,0 +1,7 @@
+## This file is a template. Copy it to local.properties (not committed) and fill in real values.
+
+sdk.dir=/path/to/your/Android/sdk
+
+## MapTiler API key used to build the tile style URL shown in the demo map screen.
+## Get one at https://cloud.maptiler.com/account/keys/
+maptiler.apiKey=YOUR_KEY_HERE
