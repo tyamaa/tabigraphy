@@ -12,6 +12,13 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            // `Flow` is part of LocationTracker's public API, so this needs to be
+            // `api` (not `implementation`) to be visible to consumers like :composeApp.
+            api(libs.kotlinx.coroutines.core)
+        }
+        androidMain.dependencies {
+            implementation(libs.play.services.location)
+            implementation(libs.androidx.core.ktx)
         }
     }
 }
