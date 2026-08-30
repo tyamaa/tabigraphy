@@ -19,7 +19,12 @@ val maptilerApiKey: String = localProperties.getProperty("maptiler.apiKey", "")
 
 android {
     namespace = "com.tabigraphy"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    // androidx.compose.ui / androidx.core (as pulled in transitively by MapLibre
+    // Compose 0.15.0 / Compose Multiplatform 1.12.0) require compiling against
+    // API 37, which has not shipped as a final SDK yet. Use the CANARY preview
+    // platform for compile-time API surface only; targetSdk below stays on the
+    // latest stable release.
+    compileSdkPreview = "CANARY"
 
     defaultConfig {
         applicationId = "com.tabigraphy"
@@ -54,7 +59,7 @@ kotlin {
     }
 }
 
-room {
+room3 {
     schemaDirectory("$projectDir/schemas")
 }
 
